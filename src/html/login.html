@@ -1,19 +1,25 @@
-<div class="container" ng-controller="loginController">
+<form name="myForm" class="container" ng-controller="loginController">
     <div class="row">
         <div class="col-md-4 form-group">
             <label for="username">Username</label>
-            <input id="username" class="form-control" placeholder="username" ng-model="username"/>
+            <input name="username" id="username" class="form-control" placeholder="username" ng-model="username" required/>
+            <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+                <span id="passwordError" ng-show="myForm.username.$error.required">Username is required.</span>
+            </span>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4 form-group">
-            <label for="password" >Username</label>
-            <input id="password" placeholder="password" class="form-control" type="password" ng-model="password"/>
+            <label for="password" >Password</label>
+            <input name="password" id="password" placeholder="password" class="form-control" type="password" ng-model="password" required/>
+            <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+                <span id="passwordError" ng-show="myForm.password.$error.required">Password is required.</span>
+            </span>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
-            <button ng-click="dologin()" class="form-control btn btn-primary">Login</button>
+            <input type="submit" ng-click="dologin()" class="form-control btn btn-primary" ng-disabled="myForm.username.$dirty && myForm.username.$invalid || myForm.password.$dirty && myForm.password.$invalid">
         </div>
     </div>
-</div>
+</form>
