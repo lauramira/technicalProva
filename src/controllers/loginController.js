@@ -2,10 +2,11 @@ app.controller('loginController', function($scope, $location) {
     $scope.username;
     $scope.password;
 
-    $scope.dologin = function() {
-        if ($scope.username && $scope.password && $scope.password.length > 6){
+
+    $scope.submitForm = function(isValid) {
+        $scope.submitted = true;
+        if (isValid) {
             $location.path("/profile");
         }
-    };
-
+    }
 });
