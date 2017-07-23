@@ -1,4 +1,4 @@
-<form name="myForm" class="container" ng-controller="loginController" ng-submit="submitted && doLogin()" novalidate>
+<form name="myForm" class="container" ng-controller="loginController" ng-submit="myForm.$valid && doLogin()" novalidate>
     <div class="row">
         <div class="col-md-4 form-group">
             <label for="username">Username</label>
@@ -20,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <input type="submit" class="form-control btn btn-primary">
+            <input type="submit" class="form-control btn btn-primary" value="Login">
         </div>
     </div>
 </form>

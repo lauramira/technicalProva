@@ -3,10 +3,7 @@ app.controller('loginController', function($scope, $location) {
     $scope.password;
 
 
-    $scope.submitForm = function(isValid) {
-        $scope.submitted = true;
-        if (isValid) {
-            $location.path("/profile");
-        }
+    $scope.doLogin = function() {
+        $location.path("/home");
     }
 });

@@ -1,0 +1,36 @@
+<form name="registerForm" class="container" ng-controller="registerController" ng-submit="registerForm.$valid && doRegister(registerForm.$valid)" novalidate>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label for="username">Username</label>
+            <input name="username" id="username" class="form-control" placeholder="username" ng-model="username" required/>
+            <span style="color:red" ng-show="registerForm.$submitted">
+                <span id="passwordError" ng-show="registerForm.username.$error.required">Username is required</span>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label for="password" >Password</label>
+            <input name="password" id="password" placeholder="password" ng-minlength="6" class="form-control" type="password" ng-model="password" required/>
+            <span style="color:red" ng-show="registerForm.$submitted">
+                <span id="passwordError" ng-show="registerForm.password.$error.required">Password is required</span>
+                <span id="passwordError" ng-show="registerForm.password.$error.minlength">Password must be greater than 6</span>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label for="password2" >Repeat Password</label>
+            <input name="password2" id="password2" placeholder="repeat password" class="form-control" type="password" required pw-check='password' ng-model="password2"/>
+            <span style="color:red" ng-show="registerForm.$submitted">
+                 <span class='msg-error' ng-show='registerForm.password2.$error.pwmatch'>Passwords don't match.</span>
+                 <div><span id="passwordError" ng-show="!registerForm.password2.$error.pwmatch && registerForm.password2.$error.required">This field is required</span></div>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <input type="submit" class="form-control btn btn-primary" value="Register">
+        </div>
+    </div>
+</form>
