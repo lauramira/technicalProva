@@ -4,8 +4,7 @@ app.controller('loginController', function($scope, $location) {
 
 
     $scope.doLogin = function() {
-    	console.log("bbbbb");
-    	$location.path("/profile");
+      $location.path("/home");
     }
 
     $scope.$on('$locationChangeStart', function(event) {
