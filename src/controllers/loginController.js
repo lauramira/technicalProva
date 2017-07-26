@@ -7,9 +7,9 @@ app.controller('loginController', function($scope, $location) {
       $location.path("/home");
     }
 
-    $scope.$on('$locationChangeStart', function(event) {
-       event.preventDefault();
-       console.log("aaaaa");
-   		}
-	);
+    // $scope.$on('$locationChangeStart', function(event) {
+    //    event.preventDefault();
+    //    console.log("aaaaa");
+   	// 	}
+	// );
 });
